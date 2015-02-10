@@ -1,0 +1,14 @@
+
+<div class="row">
+  <%= link_to "Add New Pin", new_pin_path, class: "btn btn-default pull-right" %>
+</div>
+<br>
+<div class="row">
+  <% @pins.each do |pin| %>
+
+    <div class="pin col-xs-3">
+      <%= link_to image_tag(pin.photo), class: "img-responsive" %>
+    </div>
+
+  <% end %>
+</div>
