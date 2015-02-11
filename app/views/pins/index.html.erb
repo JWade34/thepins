@@ -11,11 +11,11 @@
     <% @pins.each do |pin| %>
 
       <div class="pin col-xs-3">
-        <%= pin.user.username %>
-        <%= link_to image_tag(pin.photo, size: "300"), class: "img-responsive" %>
+        <p>User: <%= pin.user.username %></p>
+        <p>PicName: <%= pin.name %></p>
+        <%= link_to image_tag(pin.photo.url(:thumb), class: "img-responsive"), pin.photo.url(:large) %>
       </div>
 
     <% end %>
   </div>
 </div>
-<%= paginate @pins %>
