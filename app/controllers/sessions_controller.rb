@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+  end
+
+  def create
 
     # get credentials from the form
     username = params[:username]
@@ -21,6 +24,11 @@ class SessionsController < ApplicationController
       redirect_to sign_in_path, alert: "SHUT yo mouth!"
     end
 
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
 end

@@ -1,6 +1,9 @@
 class PinsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
-    @pins = Pin.all
+    @pins = @current_user.pins.page(params[:page])
   end
 
   def new
