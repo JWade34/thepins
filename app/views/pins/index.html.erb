@@ -4,34 +4,32 @@
 
 
 <div class="container">
-
-
-    <%= link_to "Sign Out", sign_out_path, class: "btn btn-default pull-right" %>
-    <%= link_to "Add New Pin", new_pin_path, class: "btn btn-default pull-right" %>
-    <%= paginate @pins %>
+    <%= link_to "Sign Out", sign_out_path, class: "btn btn-primary pull-right" %>
+    <%= link_to "Add New Pin", new_pin_path, class: "btn btn-primary pull-right" %>
 
     <div class="row">
       <%= form_tag root_path, method: :get do %>
       <%= text_field_tag :search_text %>
-      <%= submit_tag "Search", class: "btn btn-default" %>
+      <%= submit_tag "Search", class: "btn btn-success" %>
     <% end %>
 
       <% if params[:search_text].present? %>
         You searched for: <em><%= params[:search_text] %></em>
       <% end %>
     </div>
-    
+
   <br>
   <br>
   <div class="row">
     <% @pins.each do |pin| %>
 
       <div class="pin col-xs-3">
-        <p>User: <%= pin.user.username %></p>
-        <p>PicName: <%= pin.name %></p>
+        <h4><%= pin.name %></h4>
+        <p>Posted by: <%= pin.user.username %></p>
         <%= link_to image_tag(pin.photo.url(:thumb), class: "img-responsive"), pin.photo.url(:large) %>
       </div>
-
     <% end %>
   </div>
+  <br>
+  <p>PAGE: <%= paginate @pins %></p>
 </div>
