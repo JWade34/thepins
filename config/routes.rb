@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'pins#index'
+  
 
   resources :pins
+  resources :registrations
 
   get "session/new" => "sessions#new", as: :sign_in
   post "session" => "sessions#create", as: :authenticate_session

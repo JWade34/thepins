@@ -1,0 +1,13 @@
+<div class="container">
+
+<%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
+  <%=  f.input :first_name  %>
+  <%=  f.input :last_name  %>
+  <%=  f.input :email  %>
+
+  <%= f.submit "Save and Complete", class: "btn btn-primary" %>
+<% end %>
+
+<hr/>
+<%= link_to 'back', previous_wizard_path %>
+</div>

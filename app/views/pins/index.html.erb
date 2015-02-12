@@ -1,11 +1,27 @@
-<div class="container">
-  <div class="row">
-    <%= link_to "Sign Out", sign_out_path, class: "btn btn-default pull-right" %>
+<br>
+<br>
+<br>
 
+
+<div class="container">
+
+
+    <%= link_to "Sign Out", sign_out_path, class: "btn btn-default pull-right" %>
     <%= link_to "Add New Pin", new_pin_path, class: "btn btn-default pull-right" %>
     <%= paginate @pins %>
 
-  </div>
+    <div class="row">
+      <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag :search_text %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+    <% end %>
+
+      <% if params[:search_text].present? %>
+        You searched for: <em><%= params[:search_text] %></em>
+      <% end %>
+    </div>
+    
+  <br>
   <br>
   <div class="row">
     <% @pins.each do |pin| %>

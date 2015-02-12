@@ -1,5 +1,5 @@
 <div class="container">
-I said SIGN IN
+ SIGN IN -por favor-
 
 <%= form_tag authenticate_session_path do %>
 
@@ -15,6 +15,11 @@ I said SIGN IN
 
 <div>
   <%= submit_tag "Sign in" %>
+</div>
+
+<div>
+  <p>Not signed in yet?</p>
+  <%= link_to "Sign Up", registration_path(:login) %>
 </div>
 
 <% end %>
